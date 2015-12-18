@@ -11,7 +11,14 @@
   "keywords":[
     "fly",
     "fly-plugin",
-    "autoprefixer"
+    "autoprefixer",
+    "postcss",
+    "css",
+    "prefix",
+    "prefixes",
+    "stylesheet",
+    "preprocess",
+    "postcss-runner"
   ],
   "scripts": {
     "lint": "eslint *.js",
@@ -28,6 +35,8 @@
     "url": "https://lukeed.com"
   },
   "dependencies": {
+    "autoprefixer": "^6.0.0",
+    "postcss": "^5.0.4"
   },
   "devDependencies": {
     "eslint": "^0.21.2",

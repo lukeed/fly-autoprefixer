@@ -1,34 +1,14 @@
-export default function (/*debug*/) {
-  this.filter("autoprefixer", (data, options) => {
-  /**
-    @overview A filter plugin returns an object { code, map, ext }
-    which is the result of transforming the incomding data source:
+const postcss = require("postcss")
+const autoprefixer = require("autoprefixer")
+const assign = require("object-assign")
 
-      return { code, map, ext }
+const browsers = ['last 5 versions']
 
-    @example Sync filter `j` that transforms a given string into an
-    object, i.e, {code, map} where code is the result data and map
-    a sourcemap if `options.sourceMap === true`.
+module.exports = function () {
+  this.filter('autoprefixer', (data, options) => {
+    const opts = assign({browsers}, options);
+    const prefixer = postcss([ autoprefixer( opts ) ]);
 
-      const j = require("my-js-transformer")
-      const assign = require("object-assign")
-
-      export default function () {
-        return this.filter("j", (data, options) => {
-          return assign({ ext: ".js"}, j.render(data.toString(), options))
-        })
-      }
-
-    @example Async filter `s` that transforms a given string and invokes
-    a callback function with an object, i.e, {css, map}.
-
-    const s = require("my-style-trasformer")
-    const assign = require("object-assign")
-
-    export default function () {
-      return this.defer(s.render)(data.toString(), options).then((result) =>
-        assign({ ext: ".css"}, result))
-    }
-  */
+    return prefixer.process(data.toString())
   })
 }
