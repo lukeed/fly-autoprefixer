@@ -12,26 +12,38 @@
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
-## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
-
-### Install
+## Install
 
 ```a
 npm install -D fly-autoprefixer
 ```
 
-### Example
+## Usage
+> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
 
 ```js
 export default function* () {
-  yield ...
+  yield this
+    .source(paths.styles.src)
+    .sass({outputStyle: 'compressed'})
+    .autoprefixer({
+      browsers: ['Firefox <= 20']
+    })
+    .concat('main.min.css')
+    .target(paths.styles.dest);
 }
 ```
 
+## API
+### autoprefixer([options])
+#### options
+See the Autoprefixer [options](https://github.com/postcss/autoprefixer#options).
+
+
+
 ## License
 
-[MIT][mit] © [luke][author] et [al][contributors]
+[MIT][mit] © [Luke Edwards][author] et [al][contributors]
 
 
 [mit]:          http://opensource.org/licenses/MIT

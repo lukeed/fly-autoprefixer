@@ -1,7 +1,7 @@
 {
   "name": "fly-autoprefixer",
-  "version": "0.2.0",
-  "description": "CSS Autoprefix plugin for Fly.",
+  "version": "0.2.2",
+  "description": "CSS Autoprefixer plugin for Fly.",
   "license": "MIT",
   "repository": "https://github.com/lukeed/fly-autoprefixer",
   "main": "index.js",
@@ -30,9 +30,9 @@
     "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
   },
   "author": {
-    "name": "luke",
+    "name": "Luke Edwards",
     "email": "luke.edwards05@gmail.com",
-    "url": "https://lukeed.com"
+    "url": "lukeed.com"
   },
   "dependencies": {
     "autoprefixer": "^6.0.0",
