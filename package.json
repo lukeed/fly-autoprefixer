@@ -39,9 +39,9 @@
     "postcss": "^5.0.4"
   },
   "devDependencies": {
-    "eslint": "^0.21.2",
     "tap-spec": "^4.0.2",
-    "tape": "^4.0.0"
+    "tape": "^4.0.0",
+    "xo": "*"
   },
   "engines": {
     "iojs": ">= 1.0.0",
