@@ -20,6 +20,7 @@ test('fly-autoprefixer', t => {
 				t.ok('autoprefixer' in fly, 'attach `autoprefixer()` plugin to fly');
 				const str = yield this.$.read(`${tmp}/style.css`, 'utf8');
 				t.true(/-webkit-/i.test(str), 'add appropriate vendor prefixes');
+				yield this.clear(tmp);
 			}
 		}
 	});
