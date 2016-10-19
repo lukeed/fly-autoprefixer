@@ -1,14 +1,16 @@
-const postcss = require("postcss")
-const autoprefixer = require("autoprefixer")
-const assign = require("object-assign")
+'use strict';
 
-const browsers = ['last 5 versions']
+const postcss = require('postcss');
+const prefixer = require('autoprefixer');
+
+const browsers = ['last 5 versions'];
 
 module.exports = function () {
-  this.filter('autoprefixer', (data, options) => {
-    const opts = assign({browsers}, options);
-    const prefixer = postcss([ autoprefixer( opts ) ]);
-
-    return prefixer.process(data.toString())
-  })
-}
+	this.plugin('autoprefixer', {}, function * (file, opts) {
+		opts = Object.assign({browsers: browsers}, opts);
+		// process with postcss + prefixer
+		const data = yield postcss([prefixer(opts)]).process(file.data);
+		// update file's content
+		file.data = data.css;
+	});
+};
