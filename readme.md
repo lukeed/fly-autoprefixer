@@ -17,15 +17,17 @@ npm install --save-dev fly-autoprefixer
 ## Usage
 
 ```js
-exports.styles = function * () {
-  yield this.source('src/styles/app.sass')
-    .sass() // or less(), etc
+exports.styles = function * (fly) {
+  yield fly.source('src/styles/app.sass')
+    .sass()
     .autoprefixer({
       browsers: ['last 5 versions']
     })
     .target('dist/css');
 }
 ```
+
+> **Note:** If using a CSS preprocessing tool (SASS, Stylus, LESS, etc), `autoprefixer()` must be invoked _after_ the CSS has been compiled.
 
 ## API
 
