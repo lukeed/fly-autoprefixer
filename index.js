@@ -15,12 +15,13 @@ const browsers = [
 	'bb >= 10'
 ];
 
-module.exports = function () {
-	this.plugin('autoprefixer', {}, function * (file, opts) {
+module.exports = {
+	name: 'autoprefixer'
+	* func(file, opts) {
 		opts = Object.assign({browsers: browsers}, opts);
 		// process with postcss + prefixer
 		const data = yield postcss([prefixer(opts)]).process(file.data);
 		// update file's content
 		file.data = data.css;
-	});
+	}
 };
