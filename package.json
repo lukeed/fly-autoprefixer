@@ -33,7 +33,8 @@
     "postcss": "^5.0.4"
   },
   "devDependencies": {
-    "fly": "beta",
+    "fly": "^2.0.0",
+    "fly-clear": "^0.2.0",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0",
     "xo": "*"
