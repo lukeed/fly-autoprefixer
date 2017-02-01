@@ -16,7 +16,7 @@ const browsers = [
 ];
 
 module.exports = {
-	name: 'autoprefixer'
+	name: 'autoprefixer',
 	* func(file, opts) {
 		opts = Object.assign({browsers: browsers}, opts);
 		// process with postcss + prefixer
